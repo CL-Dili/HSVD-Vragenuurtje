@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HSV Diligentia Vragenuurtje</title>
 
-  <!-- Use only the TTF font you have -->
+  <!-- Load a Google Font backup similar to Graphik: Work Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
   <style>
     @font-face {
       font-family: "Graphik";
-      src: url("Graphik-Bold-Italic.ttf") format("truetype");
+      src: url("fonts/Graphik-Bold-Italic.ttf") format("truetype");
       font-weight: 700;
       font-style: italic;
       font-display: swap;
@@ -18,7 +20,7 @@
     body {
       margin: 0;
       background-color: #ed1c24;
-      font-family: "Graphik", Arial, sans-serif;
+      font-family: "Graphik", 'Work Sans', sans-serif;
       color: white;
       text-align: center;
       padding: 40px 20px;
@@ -29,7 +31,7 @@
     h1 {
       font-style: italic;
       margin-bottom: 10px;
-      font-weight: 700; /* use your Bold Italic */
+      font-weight: 700;
     }
     h2 {
       font-weight: normal;
@@ -44,7 +46,7 @@
       border-radius: 10px;
       cursor: pointer;
       margin: 20px 0;
-      font-family: "Graphik", Arial, sans-serif;
+      font-family: "Graphik", 'Work Sans', sans-serif;
     }
     button:hover { opacity: 0.9; }
 
@@ -59,7 +61,7 @@
 </head>
 <body>
   <h1>HSV Diligentia</h1>
-  <h2>Vragenuurtje</h2>
+  <h2>18+ Vragenuurtje</h2>
 
   <button id="askBtn" type="button">Hit me</button>
 
