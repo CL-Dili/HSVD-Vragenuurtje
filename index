@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSV Diligentia Vragenuurtje</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ed1c24;
+      font-family: "Graphik", Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 40px 20px; /* some side padding for small screens */
+    }
+    h1 {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: normal;
+      margin-top: 0;
+    }
+    button {
+      background-color: white;
+      color: #ed1c24;
+      font-size: 20px;
+      padding: 14px 28px; /* bigger touch target */
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+      font-family: "Graphik", Arial, sans-serif;
+    }
+    button:hover { opacity: 0.9; }
+
+    #question {
+      font-size: 18px;
+      margin: 16px auto;
+      min-height: 1.5em;
+      max-width: 500px; /* prevent overly long lines on wider phones */
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <h1>HSV Diligentia</h1>
+  <h2>Vragenuurtje</h2>
+
+  <button id="askBtn" type="button">Vraag</button>
+
+  <div id="question"></div>
+
+  <script>
+    const placeholders = [
+      "Val je op mannen, vrouwen, beide, of wat wel?",
+      "Al eens seks gehad?",
+      "Heb je ooit een one-night stand gehad?",
+      "Seks in de buitenlucht: GO of NO-GO?",
+      "Wat is je grootste turn-on?",
+      "Val je op ouder, jonger, same, of maakt niet uit?",
+      "Wat is je grootste turn-off?",
+      "Zou je seks hebben op de eerste date?",
+      "Wat is het spannendenste wat je ooit hebt gedaan in bed?",
+      "Heb je ooit iemand gestalkt, al dan niet op social media?",
+      "Zou je ooit een trio overwegen?",
+      "Ben je eerder verliefd geweest op een goeie vriend(in)?",
+      "Kijk je wel eens porno? Zo ja, wat type je in de zoekbalk?",
+      "Wat is je body count?",
+      "Vanaf welke 'handeling' is het voor jou 'seks'?",
+      "Ooit een dickpic of nude gestuurd?",
+      "Ooit seks gehad op werk?",
+      "VOoit een seksspeeltje gebruikt, samen?",
+      "Ooit anale seks geprobeerd? En, beviel het?",
+      "Heb je ooit seks opgenomen (video en/of foto)?"
+	    "Ben je ooit klaargekomen tijdens voorspel?"
+	    "Zou je openstaan voor een open relatie of alleen monogaam?"
+	    "Ooit seks gehad met meer dan één persoon op dezelfde avond?"
+	    "Hou je meer van het geven of het krijgen van orale seks?"
+	    "Wat is je favouriete standje?"
+	    "Welke bekende persoon zou je het liefst seks mee willen hebben?"
+	    "Welke collega's zou je wel een trucje mee kunnen?"
+	    "Spit or swallow?"
+	    "Hoe dichtbij je favoriete maaltijd mag er een kwakje liggen van een onbekende?"
+	    "Zou je seks hebben met iemand puur voor de ervaring, terwijl je ze niet aantrekkelijk vindt?"
+	    "Heb je ooit zaad geproeft, al dan niet je eigen?"
+	    "Hoeveel keer ben je in 24u klaargekomen?"
+    ];
+
+    let bag = [];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function refillBag() {
+      bag = shuffle([...placeholders]);
+    }
+
+    function showNext() {
+      if (bag.length === 0) refillBag();
+      const next = bag.pop();
+      document.getElementById('question').textContent = next;
+    }
+
+    refillBag();
+    document.getElementById('askBtn').addEventListener('click', showNext);
+  </script>
+</body>
+</html>
