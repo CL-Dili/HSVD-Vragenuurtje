@@ -52,6 +52,8 @@
   <div id="question"></div>
 
   <script>
+  // Wait for DOM to be ready in case this script is moved to the <head>
+  window.addEventListener('DOMContentLoaded', () => {
     const placeholders = [
       "Val je op mannen, vrouwen, beide, of wat wel?",
       "Al eens seks gehad?",
@@ -97,18 +99,23 @@
       return array;
     }
 
-    function refillBag() {
-      bag = shuffle([...placeholders]);
-    }
+    function refillBag() { bag = shuffle([...placeholders]); }
 
     function showNext() {
       if (bag.length === 0) refillBag();
       const next = bag.pop();
-      document.getElementById('question').textContent = next;
+      const box = document.getElementById('question');
+      if (!box) return;
+      box.textContent = next;
     }
 
-    refillBag();
-    document.getElementById('askBtn').addEventListener('click', showNext);
-  </script>
+    // Safety: only bind if button exists
+    const btn = document.getElementById('askBtn');
+    if (btn) {
+      refillBag();
+      btn.addEventListener('click', showNext);
+    }
+  });
+</script>
 </body>
 </html>
